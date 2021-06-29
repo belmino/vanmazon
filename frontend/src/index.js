@@ -5,10 +5,19 @@ import './images/product-3.jpg';
 import './images/product-4.jpg';
 import './images/product-5.jpg';
 import './images/product-6.jpg';
+
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
+import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons/faStarHalfAlt';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons/faStar';
+
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import { parseRequestUrl } from './utils';
 import Error404Screen from './screens/Error404Screen';
+
+library.add(faStar, faStarHalfAlt, faStarRegular);
+dom.watch();
 
 const routes = {
   '/': HomeScreen,
