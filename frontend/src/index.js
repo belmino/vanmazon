@@ -15,6 +15,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import { parseRequestUrl } from './utils';
 import Error404Screen from './screens/Error404Screen';
+import CartScreen from './screens/CartScreen';
 
 library.add(faStar, faStarHalfAlt, faStarRegular);
 dom.watch();
@@ -22,6 +23,8 @@ dom.watch();
 const routes = {
   '/': HomeScreen,
   '/product/:id': ProductScreen,
+  '/cart/:id': CartScreen,
+  '/cart': CartScreen
 };
 
 const router = async () => {
