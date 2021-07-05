@@ -3,6 +3,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+// import bodyParser from "body-parser";
 
 import config from "./config";
 import data from "./data";
@@ -26,6 +27,8 @@ const app = express();
 app.set("port", 5000);
 
 app.use(cors());
+app.use(express.json());
+// app.use(bodyParser.json());
 
 app.use("/api/users", userRouter);
 app.use("/api/products/:id", (req, res) => {
@@ -38,6 +41,11 @@ app.use("/api/products/:id", (req, res) => {
 
 app.use("/api/products", (req, res) => {
   res.send(data.products);
+});
+
+app.use((err, req, res, next) => {
+  const status = err.name && err.name === "ValidationError" ? 400 : 500;
+  res.status(status).send({ message: err.message });
 });
 
 export default app;
