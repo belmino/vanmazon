@@ -18,6 +18,7 @@ import Error404Screen from "./screens/Error404Screen";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
 import Header from "./components/Header";
+import RegisterScreen from "./screens/RegisterScreen";
 
 library.add(faStar, faStarHalfAlt, faStarRegular);
 dom.watch();
@@ -28,6 +29,7 @@ const routes = {
   "/cart/:id": CartScreen,
   "/cart": CartScreen,
   "/signin": SigninScreen,
+  "/register": RegisterScreen,
 };
 
 const router = async () => {
